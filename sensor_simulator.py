@@ -32,3 +32,4 @@ try:
         time.sleep(5)
 except KeyboardInterrupt:
     print("\nSensor simulator stopped.")
+

@@ -1,4 +1,4 @@
-# JalRakshak AI — Intelligent Water Quality Monitoring System
+# JalRakshak AI - Intelligent Water Quality Monitoring System
 
 > **JalRakshak** (जलरक्षक) means *Water Guardian* in Sanskrit/Hindi. This system uses Machine Learning to predict water safety, detect contamination causes, recommend actions, and forecast future water quality trends — all in real time.
 
@@ -233,3 +233,5 @@ Visit `http://127.0.0.1:8000/docs` for the auto-generated Swagger UI.
 - **Rows:** ~3,276 water samples
 - **Label:** `Potability` — 1 (safe to drink) / 0 (not safe)
 - **Missing values:** Handled via column mean imputation
+
+updated readme
