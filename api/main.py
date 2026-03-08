@@ -1,9 +1,17 @@
 import os
 from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
 import joblib
 import numpy as np
 
 app = FastAPI()
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_methods=["GET", "POST"],
+    allow_headers=["*"],
+)
 
 # Load trained ML model
 _model_path = os.path.join(os.path.dirname(__file__), "..", "models", "water_model.pkl")
