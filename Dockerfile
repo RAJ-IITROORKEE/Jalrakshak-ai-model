@@ -29,4 +29,4 @@ USER appuser
 EXPOSE 8000
 
 # Uvicorn with 2 workers; Azure Container Apps scales replicas not workers
-CMD ["uvicorn", "api.main:app", "--host", "0.0.0.0", "--port", "8000", "--workers", "2"]
+CMD ["sh", "-c", "uvicorn api.main:app --host 0.0.0.0 --port ${PORT:-8000}"]
