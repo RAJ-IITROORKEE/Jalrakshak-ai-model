@@ -2,7 +2,8 @@ pandas
 numpy
 scikit-learn
 fastapi
-uvicorn
+uvicorn[standard]
 joblib
+python-multipart
 matplotlib
 seaborn

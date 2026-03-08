@@ -1,0 +1,13 @@
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.env
+.venv/
+venv/
+.git/
+.gitignore
+*.md
+.DS_Store
+data/
+# Don't exclude models/ — the .pkl file is needed at runtime
