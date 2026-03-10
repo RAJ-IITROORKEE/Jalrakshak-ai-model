@@ -1,6 +1,12 @@
-# JalRakshak AI - Intelligent Water Quality Monitoring System
+# JalRakshak AI — ML Prediction Service
 
-> **JalRakshak** (जलरक्षक) means *Water Guardian* in Sanskrit/Hindi. This system uses Machine Learning to predict water safety, detect contamination causes, recommend actions, and forecast future water quality trends — all in real time.
+> **JalRakshak** (जलरक्षक) means *Water Guardian* in Sanskrit/Hindi. This is the Python FastAPI + Machine Learning backend that powers water safety predictions for the JalRakshak.AI dashboard.
+
+**GitHub →** [github.com/RAJ-IITROORKEE/Jalrakshak-ai-model](https://github.com/RAJ-IITROORKEE/Jalrakshak-ai-model)  
+**Live Dashboard →** [jalrakshak-ai-dualcore.vercel.app](https://jalrakshak-ai-dualcore.vercel.app/)  
+**Dashboard source code →** [github.com/RAJ-IITROORKEE/Jalrakshak-ai](https://github.com/RAJ-IITROORKEE/Jalrakshak-ai)
+
+> This service is consumed by the Next.js dashboard at `POST /api/predict`. Set the deployed Railway URL as `FASTAPI_URL` in the dashboard's `.env.local`.
 
 ---
 
@@ -169,8 +175,8 @@ Predict water safety from sensor parameters.
 
 ```bash
 # 1. Clone the repository
-git clone <repo-url>
-cd JALRAKSHAK-AI
+git clone https://github.com/RAJ-IITROORKEE/Jalrakshak-ai-model.git
+cd Jalrakshak-ai-model
 
 # 2. Create and activate a virtual environment (recommended)
 python -m venv venv
@@ -234,4 +240,38 @@ Visit `http://127.0.0.1:8000/docs` for the auto-generated Swagger UI.
 - **Label:** `Potability` — 1 (safe to drink) / 0 (not safe)
 - **Missing values:** Handled via column mean imputation
 
-updated readme
+---
+
+## Deployment (Railway)
+
+This service is pre-configured for [Railway](https://railway.app/) via `railway.toml` and `Dockerfile`.
+
+```bash
+# Deploy with Railway CLI
+npm install -g @railway/cli
+railway login
+railway link          # link to your Railway project
+railway up            # build and deploy
+```
+
+After deployment, copy the public URL from Railway and add it to the Next.js dashboard:
+
+```env
+# hydro-monitor-app/.env.local
+FASTAPI_URL=https://<your-service>.railway.app
+```
+
+Verify the service is running:
+```bash
+curl https://<your-service>.railway.app/
+# → {"message": "JalRakshak AI running"}
+```
+
+---
+
+## Related
+
+| Repo | Description |
+|---|---|
+| [Jalrakshak-ai](https://github.com/RAJ-IITROORKEE/Jalrakshak-ai) | Next.js dashboard, TTN webhook, MongoDB integration |
+| [Jalrakshak-ai-model](https://github.com/RAJ-IITROORKEE/Jalrakshak-ai-model) | This repo — Python FastAPI + Random Forest model server |
